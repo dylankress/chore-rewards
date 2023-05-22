@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chore Rewards</title>
+    <script src="index.js"></script>
 </head>
 <body>
     <h1>Chore Rewards</h1>
-    <h6>Do chores. Earn Rewards.</h6>
+    <h4>Do chores. Earn Rewards.</h4>
+    <div id="choreList">
+        <h3>Current Chore List</h3>
+        <!--Here I need to display a list of chores stored in the chores array-->
+    </div>
+    <form>
+        <button name="newChore">Add New Chore</button>
+        <br>
+        <label for="choreName"></label>
+        <input required type="text" id="choreName" name="choreName" placeholder="Chore Name">
+        <br>
+        <label for="rewardValue"></label>
+        <input required type="number" id="rewardValue" name="rewardValue" placeholder="Reward Point Value">
+        <br>
+        <label for="frequency"></label>
+        <input required type="number" id="frequency" name="frequency" placeholder="Frequency (Days)">
+    </form>
 </body>
 </html>
