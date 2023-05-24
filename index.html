@@ -9,14 +9,18 @@
 <body>
     <script src="index.js"></script>
     <h1>Chore Rewards</h1>
-    <h4>Do chores. Earn Rewards.</h4>
-    <div id="choreList">
-        <h3>Current Chore List</h3>
-        <!--Here I need to display a list of chores stored in the chores array-->
-    </div>
-    <div data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9">
-        <p>{{Chore Name}} Due in {{Due In Days}} days</p>
-    </div>
+    <h3>Do chores. Earn Rewards.</h3>
+    <h4>Current Chore List</h4>
+    <form id="choreList" data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9"
+    data-sheetdb-sort-by="Due In Days"
+    data-sheetdb-sort-order="asc">
+        <p>{{Chore Name}} Due in {{Due In Days}} days <br>
+            <input required type="radio" id="dylan" name="user" value="Dylan">
+            <label for="dylan">Dylan</label>
+            <input required type="radio" id="val" name="user" value="Val">
+            <label for="val">Val</label>
+            <button id="claimChoreButton" name="claimChoreButton">Claim</button></p>
+    </form>
     <form>
         <button name="newChore">Add New Chore</button>
         <br>
@@ -29,6 +33,10 @@
         <label for="frequency"></label>
         <input required type="number" id="frequency" name="frequency" placeholder="Frequency (Days)">
     </form>
+    <h3>Rewards Earned</h3>
+    <div data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9?sheet=users">
+        <p>{{User Name}}: {{Reward Points}} points</p>
+    </div>
     <script src="https://sheetdb.io/handlebars.js"></script>
 </body>
 </html>
