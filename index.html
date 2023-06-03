@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chore Rewards</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 85%;
+        }
+        td, th {
+          border: 2px solid #e9e9e9;
+          text-align: left;
+          padding: 8px;
+        }
+        tbody:nth-child(even) {
+          background-color: #e9e9e9;
+        }
+        </style>
 </head>
-<body>
-    <script src="index.js"></script>
+<body onload="setDate()">
     <h1>Chore Rewards</h1>
     <h3>Do chores. Earn Rewards.</h3>
-    <h4>Current Chore List</h4>
-    <form id="choreList" data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9"
-    data-sheetdb-sort-by="Due In Days"
-    data-sheetdb-sort-order="asc">
-        <p>{{Chore Name}} Due in {{Due In Days}} days <br>
-            <input required type="radio" id="dylan" name="user" value="Dylan">
-            <label for="dylan">Dylan</label>
-            <input required type="radio" id="val" name="user" value="Val">
-            <label for="val">Val</label>
-            <button id="claimChoreButton" name="claimChoreButton">Claim</button></p>
-    </form>
-    <form>
-        <button name="newChore">Add New Chore</button>
-        <br>
-        <label for="choreName"></label>
-        <input required type="text" id="choreName" name="choreName" placeholder="Chore Name">
-        <br>
-        <label for="rewardValue"></label>
-        <input required type="number" id="rewardValue" name="rewardValue" placeholder="Reward Point Value">
-        <br>
-        <label for="frequency"></label>
-        <input required type="number" id="frequency" name="frequency" placeholder="Frequency (Days)">
-    </form>
-    <h3>Rewards Earned</h3>
-    <div data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9?sheet=users">
-        <p>{{User Name}}: {{Reward Points}} points</p>
-    </div>
+        <select id="users">
+            <option value="" selected disabled>--Select User--</option>
+            <option value="Dylan">Dylan</option>
+            <option value="Val">Val</option>
+        </select>
+    <table data-sheetdb-url="https://sheetdb.io/api/v1/03vthxv39kzq9" id="choreTable">
+    </table>
     <script src="https://sheetdb.io/handlebars.js"></script>
 </body>
 </html>
